@@ -2,7 +2,8 @@
 :root {
     --dark-bg: #362d4c;
     --light-bg: #ededf6;
-    --primary: #b264d9;
+    --primary: #c072e7;
+    --secondary: #684e83;
     --edge-margin: 60px;
     --global-margin: 5%;
 }
@@ -43,7 +44,7 @@ nav {
     font-size: 20px;
 }
 
-header a {
+a {
     padding: 3px 9px;
     border-bottom: 4px solid var(--primary);
     margin: 0 3px;
@@ -83,47 +84,109 @@ figure {
 main section {
     margin: calc(var(--global-margin)/2) var(--global-margin);
     /* Learned from https://stackoverflow.com/questions/8643401/is-there-a-way-to-add-and-subtract-values-in-css */
+    height: 110vh;
     display: flex;
-    flex-flow: row-reverse wrap; /* content will move from right to left and will wrap below */
-    justify-content: end; /* content will hug the right side */
+    flex-flow: row wrap; /* content will move from right to left and will wrap below */
+    justify-content: start; /* content will hug the right side */
 }
 
 main section > * {
     width: 80%;
     margin-bottom: calc(var(--global-margin)/2);
     padding-left: calc(var(--global-margin)/2);
-    border: 5px solid #362d4c;
+    border-left: 5px solid var(--secondary);
+}
+
+.text-right {
+    text-align: right;
+    width: 20%;
+    border: none;
+    padding-top: calc(var(--global-margin)/8);
+    padding-right: calc(var(--global-margin)/4);
+}
+
+main section h1 {
+    font-size: 45px;
+    border: none;
+    color: var(--secondary);
 }
 
 /* Grid setup starts here */
 [class*="box"] {
+    position: relative; /* relative so that the bg div can copy the size and position */
     margin: 5px;
-    border: 5px solid #b264d9;
+    border: 5px solid var(--primary);
 }
 /* Got a refresher from https://www.geeksforgeeks.org/wildcard-selectors-and-in-css-for-classes/ */
 
+.bg {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-bg);
+    opacity: .5;
+}
+
+.bg:hover {
+    opacity: 0;
+}
+
+.title-card {
+    z-index: 2;
+    position: absolute;
+    background-color: var(--primary);
+    left: -2px;
+    bottom: 16px;
+    padding: 8px;
+}
+
+.title-card h3 {
+    padding: 5px 0;
+    color: var(--dark-bg);
+    font-size: 25px;
+}
+
+.title-card p {
+    color: var(--dark-bg);
+    font-size: 12px;
+}
+
 .box-one {
     grid-area: box1;
+    background-image: url('../../assets/images/image1.PNG');
+    background-size: cover;
 }
 
 .box-two {
     grid-area: box2;
+    background-image: url('../../assets/images/image0.PNG');
+    background-size: cover;
 }
 
 .box-three {
     grid-area: box3;
+    /* Place third image below */
+    background-image: url('../../assets/images/5990x1921.png');
+    background-size: cover;
 }
 
 .box-four {
     grid-area: box4;
+    /* Place fourth image below */
+    background-image: url('../../assets/images/5990x1921.png');
+    background-size: cover;
 }
 
 .box-five {
     grid-area: box5;
+    /* Place fifth image below */
+    background-image: url('../../assets/images/5990x1921.png');
+    background-size: cover;
 }
 
 .container {
-    height: 90vh;
+    height: 80vh;
     /* Learned from https://stackoverflow.com/questions/1622027/percentage-height-html-5-css */
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -139,4 +202,14 @@ section nav {
     display: flex;
     justify-content: space-evenly;
     margin: 0;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    align-self: center;
+}
+
+section a {
+    color: var(--dark-bg);
+    border-bottom: 4px solid var(--secondary);
+    padding: 3px 5px;
+    align-self: flex-end;
 }
