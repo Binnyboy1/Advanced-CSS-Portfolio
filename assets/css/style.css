@@ -36,11 +36,10 @@ header h1 {
     z-index: 1; /* puts h1 positionally above its parent div */
 }
 
-header nav {
+nav {
     display: block;
     margin-right: var(--edge-margin);
     float: right;
-    font-family: 'Trebuchet MS', sans-serif;
     font-size: 20px;
 }
 
@@ -78,4 +77,66 @@ figure {
     padding: 10px;
     color: var(--dark-bg);
     font-size: 35px;
+}
+
+/* Main starts here */
+main section {
+    margin: calc(var(--global-margin)/2) var(--global-margin);
+    /* Learned from https://stackoverflow.com/questions/8643401/is-there-a-way-to-add-and-subtract-values-in-css */
+    display: flex;
+    flex-flow: row-reverse wrap; /* content will move from right to left and will wrap below */
+    justify-content: end; /* content will hug the right side */
+}
+
+main section > * {
+    width: 80%;
+    margin-bottom: calc(var(--global-margin)/2);
+    padding-left: calc(var(--global-margin)/2);
+    border: 5px solid #362d4c;
+}
+
+/* Grid setup starts here */
+[class*="box"] {
+    margin: 5px;
+    border: 5px solid #b264d9;
+}
+/* Got a refresher from https://www.geeksforgeeks.org/wildcard-selectors-and-in-css-for-classes/ */
+
+.box-one {
+    grid-area: box1;
+}
+
+.box-two {
+    grid-area: box2;
+}
+
+.box-three {
+    grid-area: box3;
+}
+
+.box-four {
+    grid-area: box4;
+}
+
+.box-five {
+    grid-area: box5;
+}
+
+.container {
+    height: 90vh;
+    /* Learned from https://stackoverflow.com/questions/1622027/percentage-height-html-5-css */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 5fr 2fr 2fr;
+    grid-template-areas: 
+      "box1 box1"
+      "box2 box3"
+      "box4 box5";
+}
+
+/* Nav setup starts here */
+section nav {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0;
 }
