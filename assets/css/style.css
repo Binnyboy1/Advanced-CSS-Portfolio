@@ -1,0 +1,45 @@
+:root {
+    --dark-bg: #31343d;
+    --light-bg: #ededf6;
+    --primary: #92cccd;
+    --edge-margin: 60px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+    background-color: var(--dark-bg);
+    color: var(--primary);
+}
+
+header #h1-bg {
+    position: relative;
+    left: -1%;
+    background-color: var(--primary)
+}
+
+header h1 {
+    margin: 0 10px 0 var(--edge-margin);
+    padding: 5px;
+    color: var(--dark-bg);
+    font-size: 40px;
+    z-index: 1; /* puts h1 positionally above its parent div */
+}
+
+header nav {
+    display: block;
+    margin-right: var(--edge-margin);
+    float: right;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+
+header a {
+    padding: 3px 9px;
+    border-bottom: 4px solid var(--primary);
+    margin: 0 3px;
+    color: var(--primary);
+    text-decoration: none;
+}
