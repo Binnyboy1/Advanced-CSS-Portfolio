@@ -1,15 +1,23 @@
+/* Global attributes begin here */
 :root {
-    --dark-bg: #31343d;
+    --dark-bg: #362d4c;
     --light-bg: #ededf6;
-    --primary: #92cccd;
+    --primary: #b264d9;
     --edge-margin: 60px;
+    --global-margin: 5%;
 }
 
+* {
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+/* Header begins here */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1%;
+    padding-top: .5%;
     background-color: var(--dark-bg);
     color: var(--primary);
 }
@@ -24,7 +32,7 @@ header h1 {
     margin: 0 10px 0 var(--edge-margin);
     padding: 5px;
     color: var(--dark-bg);
-    font-size: 40px;
+    font-size: 45px;
     z-index: 1; /* puts h1 positionally above its parent div */
 }
 
@@ -42,4 +50,32 @@ header a {
     margin: 0 3px;
     color: var(--primary);
     text-decoration: none;
+}
+
+/* Backdrop Image begins here */
+figure {
+    position: relative; /* exists so that subtitle div can be placed relative to the background image */
+}
+
+#frame {
+    width: 100%;
+    height: 210px;
+    background-image: url('../../assets/images/5990x1921.png');
+    /* Learned from https://stackoverflow.com/questions/20047364/how-to-give-the-background-image-path-in-css */
+    background-size: cover;
+    background-position: center;
+}
+
+#fig-bg {
+    position: absolute;
+    right: 0;
+    margin-right: var(--global-margin);
+    bottom: 30px;
+    background-color: var(--primary);
+}
+
+#fig-bg > h2 {
+    padding: 10px;
+    color: var(--dark-bg);
+    font-size: 35px;
 }
