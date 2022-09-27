@@ -1,8 +1,10 @@
-/* Global attributes begin here */
+/* 
+Global attributes begin here 
+*/
 :root {
     --dark-bg: #362d4c;
     --light-bg: #ededf6;
-    --primary: #c072e7;
+    --primary: #d69df2;
     --secondary: #684e83;
     --edge-margin: 60px;
     --global-margin: 5%;
@@ -12,7 +14,9 @@
     font-family: 'Trebuchet MS', sans-serif;
 }
 
-/* Header begins here */
+/* 
+Header begins here 
+*/
 header {
     display: flex;
     justify-content: space-between;
@@ -23,8 +27,8 @@ header {
     color: var(--primary);
 }
 
-header #h1-bg {
-    position: relative;
+header #h1-bg { 
+    position: relative; /* h1's parent div */
     left: -1%;
     background-color: var(--primary)
 }
@@ -52,7 +56,9 @@ a {
     text-decoration: none;
 }
 
-/* Backdrop Image begins here */
+/* 
+Backdrop Image begins here 
+*/
 figure {
     position: relative; /* exists so that subtitle div can be placed relative to the background image */
 }
@@ -67,7 +73,7 @@ figure {
 }
 
 #fig-bg {
-    position: absolute;
+    position: absolute; /* subtitle div */
     right: 0;
     margin-right: var(--global-margin);
     bottom: 30px;
@@ -80,24 +86,25 @@ figure {
     font-size: 35px;
 }
 
-/* Main starts here */
-main section {
+/* 
+Main starts here 
+*/
+main section { /* content will move from left to right and will wrap below */
     margin: calc(var(--global-margin)/2) var(--global-margin);
     /* Learned from https://stackoverflow.com/questions/8643401/is-there-a-way-to-add-and-subtract-values-in-css */
     height: 110vh;
     display: flex;
-    flex-flow: row wrap; /* content will move from right to left and will wrap below */
-    justify-content: start; /* content will hug the right side */
+    flex-flow: row wrap;
 }
 
-main section > * {
+main section > * { /* right section 80% */
     width: 80%;
     margin-bottom: calc(var(--global-margin)/2);
     padding-left: calc(var(--global-margin)/2);
     border-left: 5px solid var(--secondary);
 }
 
-.text-right {
+.text-right { /* left section 20% w/ text aligned to the right */
     text-align: right;
     width: 20%;
     border: none;
@@ -111,20 +118,22 @@ main section h1 {
     color: var(--secondary);
 }
 
-/* Grid setup starts here */
+/* 
+Grid setup starts here 
+*/
 [class*="box"] {
-    position: relative; /* relative so that the bg div can copy the size and position */
+    position: relative; /* relative so that the bg div and title card can copy the size and position */
     margin: 5px;
     border: 5px solid var(--primary);
 }
 /* Got a refresher from https://www.geeksforgeeks.org/wildcard-selectors-and-in-css-for-classes/ */
 
-.bg {
-    position: absolute;
+.bg { 
+    position: absolute; /* bg div */
     z-index: 1;
     width: 100%;
     height: 100%;
-    background-color: var(--dark-bg);
+    background-color: #291950;
     opacity: .5;
 }
 
@@ -134,7 +143,7 @@ main section h1 {
 
 .title-card {
     z-index: 2;
-    position: absolute;
+    position: absolute; /* title card */
     background-color: var(--primary);
     left: -2px;
     bottom: 16px;
@@ -197,7 +206,9 @@ main section h1 {
       "box4 box5";
 }
 
-/* Nav setup starts here */
+/* 
+Nav setup starts here 
+*/
 section nav {
     display: flex;
     justify-content: space-evenly;
@@ -212,4 +223,53 @@ section a {
     border-bottom: 4px solid var(--secondary);
     padding: 3px 5px;
     align-self: flex-end;
+}
+
+/* I'm deciding not to mess with correcting viewport widths that are less than 560px */
+/* 
+Media Query set up 
+*/
+@media screen and (max-width: 1120px) {
+    main section h1 {
+        font-size: 4vw;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    header { /* wraps so that nav links can fit nicely below name card */
+        flex-flow: row wrap;
+    }
+
+    header nav {
+        margin: 10px var(--edge-margin);
+        float: left;
+    }
+  
+    main section {
+        display: block;
+        height: auto;
+    }
+
+    main section > * { /* contents will take up the whole width */
+        width: 100%;
+        margin-bottom: calc(var(--global-margin)/2);
+    }
+
+    .text-right {
+        text-align: left;
+        width: auto;
+    }
+
+    main section h1 {
+        font-size: 45px;
+    }
+
+    section h1 {
+        margin-top: calc(var(--global-margin)/2);
+    }
+  
+    section nav { /* contents will move from left to right, and will wrap below */
+        flex-flow: row wrap; 
+        justify-content: left;
+    }
 }
