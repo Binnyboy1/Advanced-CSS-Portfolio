@@ -145,10 +145,14 @@ Grid setup starts here
 .bg { 
     position: absolute; /* bg div */
     z-index: 1;
-    width: 100%;
-    height: 100%;
+    left: -.5vw;
+    top: -1.5%;
+    width: 101%;
+    height: 103%;
+    /* pixel tweaking so that the tint covers the background properly */
     background-color: #291950;
     opacity: .5;
+    border: 4px solid var(--primary);
 }
 
 .bg:hover {
