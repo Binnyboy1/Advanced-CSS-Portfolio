@@ -33,8 +33,20 @@ header #h1-bg {
     background-color: var(--primary)
 }
 
+header h1::before {
+    background-image: url('../../assets/images/icon.jpg');
+    background-size: 45px 45px;
+    display: inline-block;
+    width: 45px; 
+    height: 45px;
+    position: absolute;
+    left: 2.5%;
+    content:"";
+}
+/* Learned from https://stackoverflow.com/questions/8977957/can-i-change-the-height-of-an-image-in-css-before-after-pseudo-elements */
+
 header h1 {
-    margin: 0 10px 0 var(--edge-margin);
+    margin: 0 10px 0 calc(var(--edge-margin)*1.2);
     padding: 5px;
     color: var(--dark-bg);
     font-size: 45px;
@@ -70,14 +82,16 @@ figure {
     /* Learned from https://stackoverflow.com/questions/20047364/how-to-give-the-background-image-path-in-css */
     background-size: cover;
     background-position: center;
+    display: flex;
+    flex-direction: row-reverse;
 }
 
 #fig-bg {
     position: absolute; /* subtitle div */
-    right: 0;
     margin-right: var(--global-margin);
     bottom: 30px;
     background-color: var(--primary);
+    z-index: 2; /* puts div above transparent-icon.png */
 }
 
 #fig-bg > h2 {
