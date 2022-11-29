@@ -188,31 +188,31 @@ Grid setup starts here
 
 .box-one {
     grid-area: box1;
-    background-image: url('../../assets/images/image7-8.PNG');
+    background-image: url('../../assets/images/image15-16.png');
     background-size: cover;
 }
 
 .box-two {
     grid-area: box2;
-    background-image: url('../../assets/images/image6.PNG');
+    background-image: url('../../assets/images/image7-8.PNG');
     background-size: cover;
 }
 
 .box-three {
     grid-area: box3;
-    background-image: url('../../assets/images/image5.PNG');
+    background-image: url('../../assets/images/image6.PNG');
     background-size: cover;
 }
 
 .box-four {
     grid-area: box4;
-    background-image: url('../../assets/images/image4.PNG');
+    background-image: url('../../assets/images/image5.PNG');
     background-size: cover;
 }
 
 .box-five {
     grid-area: box5;
-    background-image: url('../../assets/images/image3.PNG');
+    background-image: url('../../assets/images/image4.PNG');
     background-size: cover;
 }
 
